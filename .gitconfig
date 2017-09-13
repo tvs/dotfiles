@@ -1,0 +1,74 @@
+[user]
+	name = Travis Hall
+	email = thall@vmware.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  au = add --update
+  ds = diff --staged # git ds - diff your staged changes == review before committing
+  st = status -sb # smarter status - include tag and branch info
+  fup = log --since '1 day ago' --oneline --author thall@vmware.com
+  ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+  lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
+
+  r = reset
+  rh = reset --hard
+
+  cp = cherry-pick
+  cl = clone
+  ci = commit
+  co = checkout
+  br = branch
+  diff = diff --word-diff
+  dc = diff --cached
+  pom = push origin master
+
+  sl = stash list
+  sa = stash apply
+  ss = stash save
+
+  l = log
+  lh = log --graph
+  la = !git lh --date-order --all 2> /dev/null
+  lb = log --graph --simplify-by-decoration
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lg = !git lg1
+  lba = !git lb --all
+  h = !git --no-pager log --graph -n 15
+  a = !git --no-pager la -n 15
+
+  ignored = !git ls-files -v | grep '^[[:lower:]]'
+  forget = update-index --assume-unchanged
+  remember = update-index --no-assume-unchanged
+
+  dci = duet-commit
+  drv = duet-revert
+  dmg = duet-merge
+  drb = rebase -i --exec 'git duet-commit --amend --reset-author'
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[gitreview]
+	remote = origin
+[duet "env"]
+	git-author-initials = th
+	git-author-name = Travis Hall
+	git-author-email = thall@vmware.com
+	mtime = 1502917004
+	git-committer-initials = 
+	git-committer-name = 
+	git-committer-email = 
