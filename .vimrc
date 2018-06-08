@@ -4,23 +4,26 @@ execute pathogen#infect()
 syntax enable           " enable syntax processing
 colorscheme badwolf
 set termguicolors
-set guifont=Inconsolata\ for\ Powerline:h12
+"set guifont=Inconsolata\ for\ Powerline:h12
+set guifont=Hack:h10
+set guioptions=
 " }}}
 
 " Misc {{{
 set backspace=indent,eol,start
-let g:vimwiki_list = [{'path': '~/.wiki/'}]
+let g:vimwiki_list = [{'path': '~/blog/content', 'index': '.index',
+      \ 'syntax': 'markdown', 'ext': '.md', 
+      \ 'diary_rel_path': '/notes/', 'diary_index': '.index'}]
 " }}}
 
 " Spaces & Tabs {{{
-set tabstop=4           " 4 space tab
+set tabstop=2           " 2 space tab
 set expandtab           " use spaces for tabs
-set softtabstop=4       " 4 space tab
-set shiftwidth=4
+set softtabstop=2       " 2 space tab
+set shiftwidth=2
 set modelines=1
 filetype indent on
 filetype plugin on
-set autoindent
 " }}}
 
 " UI Layout {{{
@@ -56,22 +59,26 @@ nnoremap gV `[v`]
 
 " Leader Shortcuts {{{
 let mapleader=","
-nnoremap <leader>m :silent make\|redraw!\|cw<CR>
-nnoremap <leader>h :A<CR>
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>et :exec ":vsp /Users/thall/notes/vim/" . strftime('%m-%d-%y') . ".md"<CR>
-nnoremap <leader>eb :vsp ~/.profile<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>l :call ToggleNumber()<CR>
-nnoremap <leader><space> :noh<CR>
-nnoremap <leader>s :mksession<CR>
-nnoremap <leader>a :Ag 
-nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
 nnoremap <leader>1 :set number!<CR>
-nnoremap <leader>d :Make! 
-nnoremap <leader>r :TestNearest<CR>
+nnoremap <leader><space> :noh<CR>
 nnoremap <leader>R :TestFile<CR>
+nnoremap <leader>a :SideSearch 
+nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
+nnoremap <leader>d :Make! 
+nnoremap <leader>eb :tabe ~/.profile<CR>
+nnoremap <leader>ev :tabe $MYVIMRC<CR>
+nnoremap <leader>h :A<CR>
+nnoremap <leader>l :call ToggleNumber()<CR>
+nnoremap <leader>m :silent make\|redraw!\|cw<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>r :TestNearest<CR>
+nnoremap <leader>s :mksession<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 vnoremap <leader>y "+y
+" }}}
+
+" Insert Shortcuts {{{
+inoremap <leader>, <C-x><C-o>
 " }}}
 
 " CtrlP {{{
@@ -85,6 +92,9 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_ignore_files = ['.java$']
 let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_check_on_open = 1
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active' }
 " }}}
 
 " AutoGroups {{{
@@ -100,6 +110,8 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.py setlocal tabstop=4
     autocmd BufEnter *.md setlocal ft=markdown
+    autocmd BufEnter ~/blog/*.md setlocal ft=vimwiki
+    autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 " }}}
 
@@ -119,17 +131,28 @@ set writebackup
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
+Plug 'ddrscott/vim-side-search'
 Plug 'derekwyatt/vim-scala'
+Plug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
 Plug 'keith/swift.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-node'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh '}
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
+" Snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'hashivim/vim-terraform'
+Plug 'honza/vim-snippets'
+Plug 'tomtom/tlib_vim'
+" Vimwiki
 Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}

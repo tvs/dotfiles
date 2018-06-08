@@ -1,5 +1,10 @@
+export SHELL=/usr/local/bin/bash
+
 PATH=$PATH:$HOME/.rvm/bin:$HOME/src/vmware-git-tools/bin # Add RVM to PATH for scripting
 PATH=$PATH:/build/apps/bin # Add build tools to the path
+PATH=/usr/local/bin:$PATH
+PATH="/usr/local/opt/curl/bin:$PATH"
+PATH=$PATH:$HOME/workspace/vane/bin
 
 ## Git Branch Display
 function parse_git_branch () {
@@ -36,8 +41,15 @@ export P4CLIENT=thall-osx
 export P4USER=thall
 
 ### DBC ALIASES
-export DBCSERV="pa-dbc1121.eng.vmware.com"
+export DBCUSER="thall"
+export DBCHOST="sc-dbc1220"
+export DBCSERV="$DBCHOST.eng.vmware.com"
 alias dbcssh="ssh $DBCSERV"
+
+### NIMBUS SSHUTTLE
+nimbusshuttle() {
+  sshuttle -r kubo@$1 30.0.0.0/16 40.0.0.0/16 192.168.111.0/24 192.168.150.0/24 -e 'ssh -o StrictHostKeyChecking=no'
+}
 
 ### ESXi ALIASES
 export ESXSERV="sea2-office-dhcp-96-170"
@@ -72,6 +84,27 @@ _complete_ssh_hosts ()
   return 0
 }
 complete -F _complete_ssh_hosts ssh
+complete -F _complete_ssh_hosts sshuttle
+complete -F _complete_ssh_hosts scp
 
 ### DIRENV HOOK
 eval "$(direnv hook bash)"
+
+### KUBO ENVS
+export LOCKS=$HOME/workspace/envs
+export MY_KUBO=$HOME/workspaces/envs/thall
+
+### KUBO HOME
+PATH=$PATH:$HOME/workspace/kubo-home/bin
+
+### PAGE ZIPPED FILES
+alias less=zless
+
+### LOAD AUTOCOMPLETIONS
+if [ -d /usr/local/etc/bash_completion.d ]; then
+    for F in "/usr/local/etc/bash_completion.d/"*; do
+        if [ -f "${F}" ]; then
+            source "${F}";
+        fi
+    done
+fi
