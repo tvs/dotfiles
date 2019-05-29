@@ -1,6 +1,37 @@
 " Travis Hall
+" Vim Plug {{{
+call plug#begin('~/.vim/plugged')
+" Colors
+Plug 'sjl/badwolf'
+" Other Stuff
+Plug 'bling/vim-airline'
+Plug 'ddrscott/vim-side-search'
+Plug 'derekwyatt/vim-scala'
+Plug 'fatih/vim-go'
+Plug 'janko-m/vim-test'
+Plug 'keith/swift.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'moll/vim-node'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh '}
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline-themes'
+" Snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'hashivim/vim-terraform'
+Plug 'honza/vim-snippets'
+Plug 'tomtom/tlib_vim'
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+call plug#end()
+" }}}
+
 " Look and Feel {{{
-execute pathogen#infect()
 syntax enable           " enable syntax processing
 colorscheme badwolf
 set termguicolors
@@ -128,34 +159,6 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 " }}}
 
-" Vim Plug {{{
-call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline'
-Plug 'ddrscott/vim-side-search'
-Plug 'derekwyatt/vim-scala'
-Plug 'fatih/vim-go'
-Plug 'janko-m/vim-test'
-Plug 'keith/swift.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'moll/vim-node'
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh '}
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'simnalamburt/vim-mundo'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline-themes'
-" Snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'hashivim/vim-terraform'
-Plug 'honza/vim-snippets'
-Plug 'tomtom/tlib_vim'
-" Vimwiki
-Plug 'vimwiki/vimwiki'
-call plug#end()
-" }}}
 
 " airline {{{
 set laststatus=2

@@ -18,7 +18,7 @@ function title() {
 
 ### COLORS
 export CLICOLOR='true'
-PS1='\[\e[0;32m\]\u:\[\e[m\]\[\e[0;36m\]\w\[\e[m\]\[\e[0;32m\]$(parse_git_branch)\[\e[m\]\[\e[1;32m\]\$\[\e[m\] '
+PS1='\[\e[0;32m\]\u:\[\e[m\]\[\e[0;36m\]\w\[\e[m\]\[\e[0;32m\]$(parse_git_branch)\[\e[m\]\[\e[0;32m\]\$\[\e[m\] '
 
 ### PERFORCE ALIASES
 export P4CONFDIR="$HOME/.p4config"
@@ -108,3 +108,6 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
         fi
     done
 fi
+
+### GIMME
+source $HOME/.gimme/envs/latest.env 2&> /dev/null
