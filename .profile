@@ -5,6 +5,7 @@ PATH=$PATH:/build/apps/bin # Add build tools to the path
 PATH=/usr/local/bin:$PATH
 PATH="/usr/local/opt/curl/bin:$PATH"
 PATH=$PATH:$HOME/workspace/vane/bin
+PATH=$PATH:/usr/local/kubebuilder/bin
 
 ## Git Branch Display
 function parse_git_branch () {
