@@ -28,6 +28,8 @@ Plug 'honza/vim-snippets'
 Plug 'tomtom/tlib_vim'
 " Vimwiki
 Plug 'vimwiki/vimwiki'
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do' : { -> mkdp#util#install() } }
 call plug#end()
 " }}}
 
@@ -38,6 +40,7 @@ set termguicolors
 "set guifont=Inconsolata\ for\ Powerline:h12
 set guifont=Hack:h10
 set guioptions=
+set colorcolumn=80
 " }}}
 
 " Misc {{{
@@ -199,4 +202,8 @@ function! <SID>CleanFile()
     let @/=_s
     call cursor(l, c)
 endfunction
+" }}}
+
+" Markdown Preview {{{
+let g:mkdp_auto_close = 0
 " }}}

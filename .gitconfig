@@ -72,3 +72,5 @@
     git-committer-initials = 
     git-committer-name = 
     git-committer-email = 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
