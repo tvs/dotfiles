@@ -21,26 +21,6 @@ function title() {
 export CLICOLOR='true'
 PS1='\[\e[0;32m\]\u:\[\e[m\]\[\e[0;36m\]\w\[\e[m\]\[\e[0;32m\]$(parse_git_branch)\[\e[m\]\[\e[0;32m\]\$\[\e[m\] '
 
-### PERFORCE ALIASES
-export P4CONFDIR="$HOME/.p4config"
-alias p4login='p4 login < $P4CONFDIR/.pwd'
-alias p4panda='. $P4CONFDIR/p4config-panda; p4login'
-alias p4toolchain='. $P4CONFDIR/p4config-toolchain; p4login'
-alias p4releng='. $P4CONFDIR/p4config-releng; p4login'
-alias p4bora='. $P4CONFDIR/p4config-bora; p4login'
-alias p4lotus='. $P4CONFDIR/p4config-lotus; p4login'
-alias p4lotusr='. $P4CONFDIR/p4config-lotus-rhino; p4login'
-alias p4vmkm='. $P4CONFDIR/p4config-vmkm; p4login'
-alias p4vc='. $P4CONFDIR/p4config-vc; p4login'
-
-alias sshroot='ssh -l root'
-
-### PERFORCE SETTINGS
-export P4EDITOR="mvim -f"
-export P4DIFFER=opendiff
-export P4CLIENT=thall-osx
-export P4USER=thall
-
 ### DBC ALIASES
 export DBCUSER="thall"
 export DBCHOST="sc-dbc1220"
@@ -64,7 +44,7 @@ alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
 alias e="subl -n ."
 
 ### JAVA HOME
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 ### GO PATH
 export GOPATH=$HOME/workspace/go
@@ -112,9 +92,3 @@ fi
 
 ### GIMME
 source $HOME/.gimme/envs/latest.env 2&> /dev/null
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/thall/src/google-cloud-sdk/path.bash.inc' ]; then . '/Users/thall/src/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/thall/src/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/thall/src/google-cloud-sdk/completion.bash.inc'; fi
