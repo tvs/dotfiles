@@ -1,5 +1,9 @@
 export SHELL=/usr/local/bin/bash
 
+# Required for load-k8s-master
+PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+
 PATH=$PATH:$HOME/.rvm/bin:$HOME/src/vmware-git-tools/bin # Add RVM to PATH for scripting
 PATH=$PATH:/build/apps/bin # Add build tools to the path
 PATH=/usr/local/bin:$PATH
@@ -82,6 +86,10 @@ PATH=$PATH:$HOME/workspace/kubo-home/bin
 alias less=zless
 
 ### LOAD AUTOCOMPLETIONS
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+  source /usr/local/share/bash-completion/bash_completion
+fi
+
 if [ -d /usr/local/etc/bash_completion.d ]; then
     for F in "/usr/local/etc/bash_completion.d/"*; do
         if [ -f "${F}" ]; then
@@ -92,3 +100,7 @@ fi
 
 ### GIMME
 source $HOME/.gimme/envs/latest.env 2&> /dev/null
+export GOPRIVATE=gitlab.eng.vmware.com
+
+### WCP GARBAGE
+export WCP_LOAD_K8S_MASTER=$HOME/workspace/gcm/main-18q2/bora/vpx/wcp/support/load-k8s-master

@@ -38,7 +38,7 @@ syntax enable           " enable syntax processing
 colorscheme badwolf
 set termguicolors
 "set guifont=Inconsolata\ for\ Powerline:h12
-set guifont=Hack:h10
+set guifont=Hack:h11
 set guioptions=
 set colorcolumn=80
 " }}}
@@ -167,6 +167,13 @@ set writebackup
 set laststatus=2
 let g:airline_theme = 'zenburn'
 let g:airline_powerline_fonts = 1
+" }}}
+
+" vim-go {{{
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
 " }}}
 
 " Custom Functions {{{

@@ -49,16 +49,17 @@
     dmg = duet-merge
     drb = rebase -i --exec 'git duet-commit --amend --reset-author'
 [diff]
-    tool = meld
+    tool = vimdiff
 [difftool]
     prompt = false
 [difftool "meld"]
     trustExitCode = true
     cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 [merge]
-    tool = meld
+	tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
-    prompt = false
+	prompt = false
 [mergetool "meld"]
     trustExitCode = true
     cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
@@ -74,3 +75,5 @@
     git-committer-email = 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[url "git@gitlab.eng.vmware.com:"]
+	insteadof = https://gitlab.eng.vmware.com/
