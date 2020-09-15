@@ -4,12 +4,12 @@ export SHELL=/usr/local/bin/bash
 PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin:$HOME/src/vmware-git-tools/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/build/apps/bin # Add build tools to the path
 PATH=/usr/local/bin:$PATH
 PATH="/usr/local/opt/curl/bin:$PATH"
-PATH=$PATH:$HOME/workspace/vane/bin
 PATH=$PATH:/usr/local/kubebuilder/bin
+PATH=$PATH:$HOME/src/tools/bin
 
 ## Git Branch Display
 function parse_git_branch () {
@@ -53,6 +53,8 @@ alias e="subl -n ."
 ### GO PATH
 export GOPATH=$HOME/workspace/go
 PATH=$PATH:$GOPATH/bin
+
+alias gopseudo='TZ=UTC git --no-pager show   --quiet   --abbrev=12   --date='format-local:v0.0.0-%Y%m%d%H%M%S'   --format="%cd-%h"'
 
 ### GIT DUET
 export GIT_DUET_ROTATE_AUTHOR=1
