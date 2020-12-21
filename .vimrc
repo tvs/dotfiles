@@ -8,6 +8,7 @@ Plug 'bling/vim-airline'
 Plug 'ddrscott/vim-side-search'
 Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go'
+Plug 'sebdah/vim-delve'
 Plug 'visualfc/gocode'
 Plug 'janko-m/vim-test'
 Plug 'keith/swift.vim'
@@ -152,6 +153,10 @@ augroup END
 " Testing {{{
 let test#strategy = 'neovim'
 let test#python#runner = 'nose'
+
+" vim-delve {{{
+let g:delve_new_command = 'new'
+" }}}
 " }}}
 
 " Backups {{{
