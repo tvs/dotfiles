@@ -1,0 +1,10 @@
+{
+  "suggest.noselect": false,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "?",
+  "diagnostic.checkCurrentLine": true,
+  "[go][json][yaml][html][javascript][css][scss]": {
+    "coc.preferences.formatOnSave": true
+  }
+}

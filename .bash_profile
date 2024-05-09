@@ -5,8 +5,8 @@
 
 # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/thall/src/google-cloud-sdk/path.bash.inc' ]; then . '/Users/thall/src/google-cloud-sdk/path.bash.inc'; fi
+export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/thall/src/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/thall/src/google-cloud-sdk/completion.bash.inc'; fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -11,6 +11,10 @@ PATH="/usr/local/opt/curl/bin:$PATH"
 PATH=$PATH:/usr/local/kubebuilder/bin
 PATH=$PATH:$HOME/src/tools/bin
 
+## nvim aliases
+alias vi=nvim
+alias vim=nvim
+
 ## Git Branch Display
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -27,7 +31,7 @@ PS1='\[\e[0;32m\]\u:\[\e[m\]\[\e[0;36m\]\w\[\e[m\]\[\e[0;32m\]$(parse_git_branch
 
 ### DBC ALIASES
 export DBCUSER="thall"
-export DBCHOST="sc-dbc1220"
+export DBCHOST="sc-dbc2162"
 export DBCSERV="$DBCHOST.eng.vmware.com"
 alias dbcssh="ssh $DBCSERV"
 
@@ -36,28 +40,16 @@ nimbusshuttle() {
   sshuttle -r kubo@$1 30.0.0.0/16 40.0.0.0/16 192.168.111.0/24 192.168.150.0/24 -e 'ssh -o StrictHostKeyChecking=no'
 }
 
-### ESXi ALIASES
-export ESXSERV="sea2-office-dhcp-96-170"
-alias esxssh="ssh root@$ESXSERV"
-
-### TOOLCHAIN
-export TCROOT="/build/toolchain"
-
 ### Aliases
 alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
 alias e="subl -n ."
-
-### JAVA HOME
-#export JAVA_HOME=$(/usr/libexec/java_home)
 
 ### GO PATH
 export GOPATH=$HOME/workspace/go
 PATH=$PATH:$GOPATH/bin
 
-alias gopseudo='TZ=UTC git --no-pager show   --quiet   --abbrev=12   --date='format-local:v0.0.0-%Y%m%d%H%M%S'   --format="%cd-%h"'
-
-### GIT DUET
-export GIT_DUET_ROTATE_AUTHOR=1
+### Generate a Golang pseduo version
+alias gopseudo='TZ=UTC git --no-pager show --quiet --abbrev=12 --date='format-local:v0.0.0-%Y%m%d%H%M%S' --format="%cd-%h"'
 
 ### SSH AUTOCOMPLETE
 _complete_ssh_hosts ()
@@ -77,13 +69,6 @@ complete -F _complete_ssh_hosts scp
 ### DIRENV HOOK
 eval "$(direnv hook bash)"
 
-### KUBO ENVS
-export LOCKS=$HOME/workspace/envs
-export MY_KUBO=$HOME/workspaces/envs/thall
-
-### KUBO HOME
-PATH=$PATH:$HOME/workspace/kubo-home/bin
-
 ### PAGE ZIPPED FILES
 alias less=zless
 
@@ -100,9 +85,15 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
     done
 fi
 
-### GIMME
-source $HOME/.gimme/envs/latest.env 2&> /dev/null
+# GO Settings
 export GOPRIVATE=gitlab.eng.vmware.com
 
-### WCP GARBAGE
-export WCP_LOAD_K8S_MASTER=$HOME/workspace/gcm/main-18q2/bora/vpx/wcp/support/load-k8s-master
+### COLIMA/DOCKER HOST
+export DOCKER_HOST="unix:///Users/thall/.colima/default/docker.sock"
+
+### Get Supervisor Control Plane credentials
+getsupervisorcreds() {
+  ssh-keygen -R "$1"
+  ssh-keyscan "$1" >> ~/.ssh/known_hosts
+  sshpass -p "$2" ssh -o IdentitiesOnly=yes -F /dev/null root@$1 '/usr/lib/vmware-wcp/decryptK8Pwd.py'
+}
