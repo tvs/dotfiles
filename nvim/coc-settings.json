@@ -1,9 +1,12 @@
 {
-  "suggest.noselect": false,
+  "suggest.autoTrigger": "none",
+  "suggest.enablePreselect": false,
+  "suggest.noselect": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "?",
   "diagnostic.checkCurrentLine": true,
+  "inlayHint.enable": false,
   "[go][json][yaml][html][javascript][css][scss]": {
     "coc.preferences.formatOnSave": true
   }
