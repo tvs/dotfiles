@@ -3,6 +3,7 @@
   email = trvs.hll@gmail.com
 [core]
 	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RF
 [color]
   diff = auto
   status = auto
@@ -46,14 +47,17 @@
   forget = update-index --assume-unchanged
   remember = update-index --no-assume-unchanged
 [diff]
-  tool = nvim -d
+  tool = vimdiff
 [difftool]
   prompt = false
+[difftool "vimdiff"]
+  path = nvim
 [merge]
-	tool = nvim -d
-	conflictstyle = diff3
+	tool = vimdiff
 [mergetool]
-	prompt = false
+  prompt = false
+[mergetool "vimdiff"]
+  path = nvim
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [url "git@gitlab.eng.vmware.com:"]
@@ -62,3 +66,5 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = diff-so-fancy --patch
