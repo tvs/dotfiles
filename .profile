@@ -45,7 +45,7 @@ alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
 alias e="subl -n ."
 
 ### GO PATH
-export GOPATH=$HOME/workspace/go
+export GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
 
 ### Generate a Golang pseduo version
