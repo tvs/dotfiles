@@ -17,7 +17,7 @@ nmap <leader><space> :noh<CR>
 nmap <leader>eb :tabe ~/.profile<CR>
 
 " Edit and source vim profile
-nmap <leader>ev :tabe ~/.vim<CR>
+nmap <leader>ev :Tex ~/.vim<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 
 " ChadTree

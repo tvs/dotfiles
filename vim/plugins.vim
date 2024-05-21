@@ -7,13 +7,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ryanoasis/vim-devicons'
+Plug 'sindrets/diffview.nvim'
 " Autocompletion & Linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Golang
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-
-" Vimwiki
-"Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 
@@ -30,6 +28,14 @@ let g:chadtree_settings = {
     \"text_colour_set": "solarized_universal",
   \} 
 \}
+" }}}
+
+" diffview
+let g:diffview_view_merge_tool_layout="diff4_mixed"
+let g:diffview_view_merge_tool_disable_diagnostics=1
+
+" coc {{{
+let g:coc_global_extensions = ['coc-go', 'coc-git', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css']
 " }}}
 
 " vim-go {{{
@@ -60,10 +66,4 @@ let g:go_highlight_generate_tags = 1
 "let g:go_highlight_function_calls = 1
 "let g:go_imports_autosave = 0
 "let g:go_highlight_string_spellcheck = 0
-" }}}
-
-" Vimwiki {{{
-let g:vimwiki_list = [{'path': '~/notes', 'index': '.index',
-      \ 'syntax': 'markdown', 'ext': '.md', 
-      \ 'diary_rel_path': '/notes/', 'diary_index': '.index'}]
 " }}}

@@ -9,5 +9,6 @@
   "inlayHint.enable": false,
   "[go][json][yaml][html][javascript][css][scss]": {
     "coc.preferences.formatOnSave": true
-  }
+  },
+  "git.enableGutters": true
 }
