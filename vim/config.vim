@@ -1,7 +1,7 @@
 " Look and Feel {{{
 syntax enable           " enable syntax processing
 set background=dark
-let g:gruvbox_material_background='medium'
+let g:gruvbox_material_background='hard'
 let g:gruvbox_material_better_performance=1
 let g:gruvbox_material_foreground='material'
 colorscheme gruvbox-material
