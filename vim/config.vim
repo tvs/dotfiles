@@ -1,6 +1,7 @@
 " Look and Feel {{{
 syntax enable           " enable syntax processing
-colorscheme badwolf
+set background=dark
+colorscheme gruvbox
 set termguicolors
 set guifont=HackNerd:h11
 set guioptions=

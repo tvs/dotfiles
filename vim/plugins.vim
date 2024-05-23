@@ -1,7 +1,8 @@
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 " Colors
-Plug 'sjl/badwolf'
+Plug 'ellisonleao/gruvbox.nvim'
+"Plug 'sjl/badwolf'
 " Miscellaneous
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
