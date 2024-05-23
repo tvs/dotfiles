@@ -18,7 +18,7 @@ call plug#end()
 
 " airline {{{
 set laststatus=2
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'gruvbox_material'
 let g:airline_powerline_fonts = 1
 " }}}
 
