@@ -1,7 +1,10 @@
 " Look and Feel {{{
 syntax enable           " enable syntax processing
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox-material
+let g:gruvbox_material_background='soft'
+let g:gruvbox_material_better_performance=1
+let g:gruvbox_material_foreground='material'
 set termguicolors
 set guifont=HackNerd:h11
 set guioptions=
