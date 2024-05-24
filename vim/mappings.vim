@@ -36,6 +36,8 @@ autocmd BufEnter *.go nmap <leader>cs <Plug>(go-callstack)
 " auto-sort and import missing packages
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
+nmap <C-w>o :ZoomToggle<CR>
+
 " Coc Fun
 nmap <leader>r <Plug>(coc-rename)
 nmap <leader>d :CocDiagnostics<CR>

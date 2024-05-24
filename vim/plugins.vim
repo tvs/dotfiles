@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'sindrets/diffview.nvim'
+Plug 'markstory/vim-zoomwin'
 " Autocompletion & Linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Golang
