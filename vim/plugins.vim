@@ -27,7 +27,7 @@ let g:airline_powerline_fonts = 1
 let g:chadtree_settings = { 
   \"theme": {
     \"icon_glyph_set": "devicons",
-    \"text_colour_set": "solarized_universal",
+    \"text_colour_set": "nerdtree_syntax_dark",
   \} 
 \}
 " }}}
