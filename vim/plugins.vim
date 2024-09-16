@@ -10,6 +10,8 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'sindrets/diffview.nvim'
 Plug 'markstory/vim-zoomwin'
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo'
 " Autocompletion & Linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Golang

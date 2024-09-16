@@ -12,3 +12,6 @@ source ~/.vim/mappings.vim
 
 " coc config
 source ~/.vim/coc.vim
+
+" ufo config
+source ~/.vim/ufo.vim
