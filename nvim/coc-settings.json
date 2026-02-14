@@ -7,8 +7,25 @@
   "diagnostic.infoSign": "?",
   "diagnostic.checkCurrentLine": true,
   "inlayHint.enable": false,
-  "[go][json][yaml][html][javascript][css][scss]": {
+  "git.enableGutters": true,
+  "[rust][go][json][yaml][html][javascript][css][scss]": {
     "coc.preferences.formatOnSave": true
   },
-  "git.enableGutters": true
+  "languageserver": {
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": [
+        "rust"
+      ],
+      "rootPatterns": [
+        "Cargo.toml"
+      ]
+    }
+  },
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.cargo/**",
+    "$HOME/.rustup/**",
+    "$HOME/src/edera-dev/protect/target/debug/build/**"
+  ]
 }

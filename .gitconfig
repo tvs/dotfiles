@@ -2,8 +2,8 @@
   name = Travis Hall
   email = trvs.hll@gmail.com
 [core]
-	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RF
+  editor = nvim
+  pager = diff-so-fancy | less --tabs=4 -RF
 [color]
   diff = auto
   status = auto
@@ -12,7 +12,7 @@
   au = add --update
   ds = diff --staged # git ds - diff your staged changes == review before committing
   st = status -sb # smarter status - include tag and branch info
-  fup = log --since '1 day ago' --oneline --author thall@vmware.com
+  fup = log --since '1 day ago' --oneline --author trvs.hll@gmail.com
   ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
   lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
 
@@ -60,8 +60,6 @@
   path = nvim
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[url "git@gitlab.eng.vmware.com:"]
-	insteadof = https://gitlab.eng.vmware.com/
 [pull]
 	rebase = false
 [init]

@@ -17,7 +17,7 @@ nmap <leader><space> :noh<CR>
 nmap <leader>eb :tabe ~/.profile<CR>
 
 " Edit and source vim profile
-nmap <leader>ev :Tex ~/.vim<CR>
+nmap <leader>ev :Tex ~/.config/nvim/<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 
 " ChadTree
@@ -34,7 +34,7 @@ autocmd BufEnter *.go nmap <leader>cc <Plug>(go-callers)
 autocmd BufEnter *.go nmap <leader>cs <Plug>(go-callstack)
 
 " auto-sort and import missing packages
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+"autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 nmap <C-w>o :ZoomToggle<CR>
 
@@ -52,4 +52,21 @@ nmap <leader>ss :syntax sync fromstart<CR>
 nmap <C-a> <C-o>
 nmap <C-d> <Plug>(coc-definition)
 
-nmap <leader>qq <Plug>(coc-float-hide)
+"nmap <leader>qq <Plug>(coc-float-hide)
+
+" coc-git
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap <leader>gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap <leader>gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap <leader>ig <Plug>(coc-git-chunk-inner)
+xmap <leader>ig <Plug>(coc-git-chunk-inner)
+omap <leader>ag <Plug>(coc-git-chunk-outer)
+xmap <leader>ag <Plug>(coc-git-chunk-outer)

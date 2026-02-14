@@ -1,17 +1,17 @@
 autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
+autoload -Uz +X compinit && compinit
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:/build/apps/bin # Add build tools to the path
-PATH=/usr/local/bin:$PATH
-PATH="/usr/local/opt/curl/bin:$PATH"
-PATH=$PATH:/usr/local/kubebuilder/bin
-PATH=$PATH:$HOME/src/tools/bin
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+export PATH=$PATH:opt/homebrew/share/google-cloud-sdk/bin # gcloud
 
 ## nvim aliases
 alias vi=nvim
 alias vim=nvim
+
+## GPG Setup
+export GPG_TTY=$(tty)
 
 ## Git Branch Display
 function parse_git_branch () {
@@ -23,9 +23,10 @@ setopt PROMPT_SUBST
 export CLICOLOR='true'
 PS1=$'%F{green}%n:%F{cyan}%d%F{green}$(parse_git_branch)%F{yellow}%(!.#.$)%F{white} '
 
+
 ### GO PATH
 export GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
 
 ### Generate a Golang pseduo version
 alias gopseudo='TZ=UTC git --no-pager show --quiet --abbrev=12 --date='format-local:v0.0.0-%Y%m%d%H%M%S' --format="%cd-%h"'
@@ -61,7 +62,12 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
     done
 fi
 
-# GO Settings
-export GOPRIVATE=gitlab.eng.vmware.com
 
-export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+## Rustup
+source "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export AWS_PROFILE="travis-sandbox"

@@ -1,8 +1,9 @@
 " Vim Plug {{{
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 " Colors
 Plug 'sainnhe/gruvbox-material'
 "Plug 'sjl/badwolf'
+
 " Miscellaneous
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -12,10 +13,16 @@ Plug 'sindrets/diffview.nvim'
 Plug 'markstory/vim-zoomwin'
 Plug 'kevinhwang91/promise-async'
 Plug 'kevinhwang91/nvim-ufo'
+
 " Autocompletion & Linting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Golang
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+
+" Rust
+Plug 'neovim/nvim-lspconfig'
+Plug 'simrat93/rust-tools.nvim'
 call plug#end()
 " }}}
 
@@ -39,7 +46,7 @@ let g:diffview_view_merge_tool_layout="diff4_mixed"
 let g:diffview_view_merge_tool_disable_diagnostics=1
 
 " coc {{{
-let g:coc_global_extensions = ['coc-go', 'coc-git', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css']
+"let g:coc_global_extensions = ['coc-go', 'coc-git', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css']
 " }}}
 
 " vim-go {{{
