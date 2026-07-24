@@ -13,7 +13,7 @@ vim.keymap.set({ "n" }, "<leader><space>", ":noh<CR>") -- Disable search highlig
 
 -- File Shortcuts
 vim.keymap.set({ "n" }, "<leader>eb", ":tabe ~/.zshrc<CR>") -- Edit terminal profile
-vim.keymap.set({ "n" }, "<leader>ev", ":Tex ~/.config/nvim/<CR>") -- Edit vim profile
+vim.keymap.set({ "n" }, "<leader>ev", ":lua Snacks.explorer.reveal({ file = '~/src/tvs/dotfiles/nvim/'})<CR>") -- Open explorer to vim profiles
 vim.keymap.set({ "n" }, "<leader>sv", ":source $MYVIMRC<CR>") -- Source vim profile
 
 -- Copy to Clipboard

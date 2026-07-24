@@ -31,6 +31,11 @@ export PATH=$PATH:$GOPATH/bin
 ### Generate a Golang pseduo version
 alias gopseudo='TZ=UTC git --no-pager show --quiet --abbrev=12 --date='format-local:v0.0.0-%Y%m%d%H%M%S' --format="%cd-%h"'
 
+# Load the kubectl completion code for zsh[1] into the current shell
+source <(kubectl completion zsh)
+# Set the kubectl completion code for zsh[1] to autoload on startup
+kubectl completion zsh > "${fpath[1]}/_kubectl"
+
 ### SSH AUTOCOMPLETE
 _complete_ssh_hosts ()
 {
@@ -71,3 +76,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export AWS_PROFILE="travis-sandbox"
+
+eval "$(direnv hook zsh)"
+
